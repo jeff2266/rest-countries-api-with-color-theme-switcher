@@ -17,6 +17,8 @@ export default function CountryPage({ data: { country } }: PageProps<Queries.Cou
 
 export const Head: HeadFC<Queries.CountryPageQuery> = ({ data: { country } }) => (
 	<>
+		<html lang="en" />
+		<body className="bg-background text-text" />
 		<title>{country.commonName}</title>
 	</>
 )
