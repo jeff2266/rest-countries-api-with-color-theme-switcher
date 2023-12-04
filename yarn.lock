@@ -13012,6 +13012,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     tailwindcss: ^3.3.5
+    tw-colors: ^3.3.1
   languageName: unknown
   linkType: soft
 
@@ -13980,6 +13981,19 @@ __metadata:
   dependencies:
     safe-buffer: ^5.0.1
   checksum: 05f6510358f8afc62a057b8b692f05d70c1782b70db86d6a1e0d5e28a32389e52fa6e7707b6c5ecccacc031462e4bc35af85ecfe4bbc341767917b7cf6965711
+  languageName: node
+  linkType: hard
+
+"tw-colors@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "tw-colors@npm:3.3.1"
+  dependencies:
+    color: ^4.2.3
+    flat: ^5.0.2
+    lodash.foreach: ^4.5.0
+  peerDependencies:
+    tailwindcss: ">=3.0.0"
+  checksum: ecdb5555005431d4f3ac6e98b9ae36c4e8915ff66936bb97f404ecb8eefa290b0b8da74932e4ba63d42e972fdf7424efe0d08eda755e4ef129166ecd5a2370e9
   languageName: node
   linkType: hard
 

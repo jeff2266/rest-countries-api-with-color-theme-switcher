@@ -17,9 +17,11 @@ export default function CountrySummary({
 	capital: string
 }): React.ReactElement {
 	return (
-		<Link className="grid grid-rows-[1fr_auto] hover:scale-105 transition-transform rounded-lg overflow-hidden shadow-md" to={id}>
+		<Link
+			className="grid grid-rows-[1fr_auto] bg-element hover:scale-105 hover:outline outline-1 outline-text transition-transform rounded-lg overflow-hidden shadow-md"
+			to={id}>
 			<img src={flag} />
-			<div className='m-4'>
+			<div className="m-4">
 				<h2 className="font-bold mb-2">{name}</h2>
 				<p>
 					<span className="font-semibold">Population: </span>
