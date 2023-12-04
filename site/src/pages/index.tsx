@@ -2,6 +2,7 @@ import * as React from 'react'
 import { HeadFC, PageProps, graphql } from 'gatsby'
 import { Listbox } from '@headlessui/react'
 import CountrySummary from '../components/countrySummary'
+import Layout from '../components/layout'
 
 export default function IndexPage({
 	data: {
@@ -9,22 +10,9 @@ export default function IndexPage({
 	}
 }: PageProps<Queries.IndexPageQuery>): React.ReactElement {
 	const [selectedRegion, setSelectedRegion] = React.useState<string | null>(null)
-	const [isDarkTheme, setIsDarkTheme] = React.useState(false)
-
-	React.useEffect(() => {
-		document.documentElement.className = isDarkTheme ? 'dark' : 'light'
-	}, [isDarkTheme])
 
 	return (
-		<div className="grid justify-items-center">
-			<header className="grid items-center bg-element shadow-md w-full h-20">
-				<div className="flex justify-between items-baseline gap-8 w-full min-w-max max-w-screen-2xl px-8 mx-auto">
-					<h1 className="text-2xl font-extrabold">Where in the world?</h1>
-					<button className="font-semibold" onClick={() => setIsDarkTheme(prev => !prev)}>
-						{isDarkTheme ? 'Light Mode' : 'Dark Mode'}
-					</button>
-				</div>
-			</header>
+		<Layout>
 			<main className="max-w-screen-2xl w-full px-8">
 				<section className="flex justify-between my-12">
 					<div>
@@ -64,13 +52,13 @@ export default function IndexPage({
 						))}
 				</section>
 			</main>
-		</div>
+		</Layout>
 	)
 }
 
 export const Head: HeadFC = () => (
 	<>
-		<html lang="en" className="light" />
+		<html lang="en" />
 		<body className="bg-background text-text" />
 		<title>REST Countries API</title>
 	</>
