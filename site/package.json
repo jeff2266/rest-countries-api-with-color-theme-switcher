@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "site",
+  "description": "An example Gatsby site that uses a source plugin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "clean": "gatsby clean",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "gatsby": "next",
+    "gatsby-plugin-image": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-sharp": "next",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "gatsby-plugin-postcss": "^6.12.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5"
+  }
+}
