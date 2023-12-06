@@ -3,6 +3,10 @@ import { Link, graphql, PageProps, HeadFC } from 'gatsby'
 import Layout from '../components/layout'
 
 export default function CountryPage({ data: { country } }: PageProps<Queries.CountryPageQuery>): React.ReactElement {
+	React.useLayoutEffect(() => {
+		document.documentElement.className = localStorage.getItem('theme') ?? 'light'
+	}, [])
+
 	return (
 		<Layout>
 			<main>

@@ -31,7 +31,7 @@ interface INodeBuilderArgs {
 }
 
 export function nodeBuilder({ gatsbyApi, input }: INodeBuilderArgs) {
-	const id = gatsbyApi.createNodeId(`${input.commonName}-${crypto.randomUUID()}`)
+	const id = gatsbyApi.createNodeId(`${input.commonName}${crypto.randomUUID()}`)
 
 	const node = {
 		...input,
