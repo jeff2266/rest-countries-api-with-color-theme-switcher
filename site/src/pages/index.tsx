@@ -12,7 +12,8 @@ export default function IndexPage({
 	const [selectedRegion, setSelectedRegion] = React.useState<string | null>(null)
 
 	React.useLayoutEffect(() => {
-		document.documentElement.className = localStorage.getItem('theme') ?? 'light'
+		document.documentElement.className =
+			(typeof window !== 'undefined' && window.localStorage.getItem('theme')) ?? 'light'
 	}, [])
 
 	return (

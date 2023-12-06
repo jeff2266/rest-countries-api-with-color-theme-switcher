@@ -1,11 +1,13 @@
 import React from 'react'
 
 export default function Layout({ children }) {
-	const [theme, setTheme] = React.useState(localStorage.getItem('theme'))
+	const [theme, setTheme] = React.useState(
+		(typeof window !== 'undefined' && window.localStorage.getItem('theme')) ?? 'light'
+	)
 
 	const toggleTheme = () => {
 		const newTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'light' : 'light'
-		localStorage.setItem('theme', newTheme)
+		typeof window !== 'undefined' && window.localStorage.setItem('theme', newTheme)
 		document.documentElement.className = newTheme
 		setTheme(newTheme)
 	}
