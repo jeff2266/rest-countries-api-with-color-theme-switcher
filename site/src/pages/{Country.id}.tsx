@@ -16,9 +16,13 @@ export default function CountryPage({ data: { country } }: PageProps<Queries.Cou
 				</svg>
 				<p>Back</p>
 			</Link>
-			<h1>{country.commonName}</h1>
-			<p>{country.nativeName}</p>
-			<br />
+			<div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-12 font-bold">
+				<img className='grow' src={country.flag} alt='flag'/>
+				<div className='grow'>
+					<h1>{country.commonName}</h1>
+					<p>{country.nativeName}</p>
+				</div>
+			</div>
 		</Layout>
 	)
 }
@@ -42,6 +46,7 @@ export const query = graphql`
 			languages
 			region
 			subregion
+			flag
 		}
 	}
 `
