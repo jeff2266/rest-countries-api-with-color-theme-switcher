@@ -15,8 +15,8 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<header className="grid items-center bg-element shadow-md w-full h-20">
-				<div className="flex justify-between items-baseline gap-8 w-full min-w-max max-w-screen-2xl px-8 mx-auto">
-					<h1 className="text-2xl font-extrabold">Where in the world?</h1>
+				<div className="flex justify-between items-center gap-8 w-full min-w-max max-w-screen-2xl px-8 mx-auto">
+					<h1 className="text-xl md:text-2xl font-extrabold">Where in the world?</h1>
 					<button className="font-semibold" onClick={toggleTheme}>
 						<div className="flex items-center gap-2">
 							{theme === 'light' ? (

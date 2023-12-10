@@ -31,9 +31,9 @@ export default function IndexPage({
 					</svg>
 					<input className="w-full" placeholder="Search for a country..." />
 				</div>
-				<div className="flex items-end basis-60 grow-[99]">
-					<div className="grow-[99]"></div>
-					<div className="basis-52 grow relative rounded-md bg-element">
+				<div className="flex items-end basis-60 grow-[999]">
+					<div className="grow"></div>
+					<div className="basis-52 relative rounded-md bg-element">
 						<Listbox
 							value={selectedRegion}
 							onChange={value => {
@@ -97,7 +97,7 @@ export const Head: HeadFC = () => {
 	return (
 		<>
 			<html lang="en" />
-			<body className="bg-background text-text" />
+			<body className="bg-background text-text min-w-min" />
 			<title>REST Countries API</title>
 		</>
 	)

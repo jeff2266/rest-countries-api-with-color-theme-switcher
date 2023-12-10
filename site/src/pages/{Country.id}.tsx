@@ -16,11 +16,40 @@ export default function CountryPage({ data: { country } }: PageProps<Queries.Cou
 				</svg>
 				<p>Back</p>
 			</Link>
-			<div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-12 font-bold">
-				<img className='grow' src={country.flag} alt='flag'/>
-				<div className='grow'>
-					<h1>{country.commonName}</h1>
-					<p>{country.nativeName}</p>
+			<div className="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-y-12 gap-x-24">
+				<img className="grow w-full" src={country.flag} alt="flag" />
+				<div className="grow self-center">
+					<h1 className="text-2xl font-bold mb-10">{country.commonName}</h1>
+					<div className="grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] gap-y-2 gap-x-4 h-full">
+						<p>
+							<span className="font-bold">Native Name: </span>
+							{country.nativeName}
+						</p>
+						<p>
+							<span className="font-bold">Population: </span>
+							{country.population.toLocaleString()}
+						</p>
+						<p>
+							<span className="font-bold">Region: </span>
+							{country.region}
+						</p>
+						<p>
+							<span className="font-bold">Sub Region: </span>
+							{country.subregion}
+						</p>
+						<p>
+							<span className="font-bold">Capital: </span>
+							{country.capital}
+						</p>
+						<p>
+							<span className="font-bold">Currencies: </span>
+							{country.currencies.join(', ')}
+						</p>
+						<p>
+							<span className="font-bold">Languages: </span>
+							{country.languages.join(', ')}
+						</p>
+					</div>
 				</div>
 			</div>
 		</Layout>
@@ -30,7 +59,7 @@ export default function CountryPage({ data: { country } }: PageProps<Queries.Cou
 export const Head: HeadFC<Queries.CountryPageQuery> = ({ data: { country } }) => (
 	<>
 		<html lang="en" />
-		<body className="bg-background text-text" />
+		<body className="bg-background text-text min-w-min" />
 		<title>{country.commonName}</title>
 	</>
 )

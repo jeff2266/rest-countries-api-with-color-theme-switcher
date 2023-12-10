@@ -25,7 +25,7 @@ export default function CountrySummary({
 				<h2 className="font-bold mb-2">{name}</h2>
 				<p>
 					<span className="font-semibold">Population: </span>
-					{population}
+					{population.toLocaleString()}
 				</p>
 				<p>
 					<span className="font-semibold">Region: </span>
