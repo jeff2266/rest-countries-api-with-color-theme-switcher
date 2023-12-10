@@ -15,7 +15,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<header className="grid items-center bg-element shadow-md w-full h-20">
-				<div className="flex justify-between items-center gap-8 w-full min-w-max max-w-screen-2xl px-8 mx-auto">
+				<div className="flex justify-between items-center gap-6 w-full min-w-max max-w-screen-2xl px-4 md:px-8 mx-auto">
 					<h1 className="text-xl md:text-2xl font-extrabold">Where in the world?</h1>
 					<button className="font-semibold" onClick={toggleTheme}>
 						<div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export default function Layout({ children }) {
 					</button>
 				</div>
 			</header>
-			<main className="max-w-screen-2xl w-full px-8 pb-8 mx-auto">{children}</main>
+			<main className="max-w-screen-2xl w-full px-4 md:px-8 pb-8 mx-auto">{children}</main>
 		</>
 	)
 }

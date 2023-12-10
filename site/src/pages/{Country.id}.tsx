@@ -16,11 +16,11 @@ export default function CountryPage({ data: { country } }: PageProps<Queries.Cou
 				</svg>
 				<p>Back</p>
 			</Link>
-			<div className="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-y-12 gap-x-24">
-				<img className="grow w-full" src={country.flag} alt="flag" />
-				<div className="grow self-center">
+			<div className="grid grid-cols-[repeat(auto-fit,_minmax(325px,_1fr))] items-center gap-y-12 gap-x-24">
+				<img className="min-w-0 w-full" src={country.flag} alt="flag" />
+				<div>
 					<h1 className="text-2xl font-bold mb-10">{country.commonName}</h1>
-					<div className="grid grid-cols-[repeat(auto-fit,_minmax(40%,_1fr))] gap-y-2 gap-x-4 h-full">
+					<div className="grid grid-cols-[repeat(auto-fit,_minmax(45%,_1fr))] gap-y-2 gap-x-4 h-full">
 						<p>
 							<span className="font-bold">Native Name: </span>
 							{country.nativeName}
