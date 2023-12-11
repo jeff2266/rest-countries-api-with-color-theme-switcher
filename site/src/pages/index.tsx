@@ -19,9 +19,13 @@ export default function IndexPage({
 			(typeof window !== 'undefined' && window.localStorage.getItem('theme')) ?? 'light'
 	}, [])
 
-	React.useEffect(() => {
-		console.log(debouncedSearch)
-	}, [debouncedSearch])
+	const resultEdges = edges
+		.filter(
+			({ node }) =>
+				(selectedRegion ? node.region === selectedRegion : node) &&
+				(debouncedSearch.length === 0 || node.commonName.toLowerCase().includes(debouncedSearch.toLowerCase()))
+		)
+		.sort((a, b) => (a.node.commonName < b.node.commonName ? -1 : a.node.commonName > b.node.commonName ? 1 : 0))
 
 	return (
 		<Layout>
@@ -72,12 +76,17 @@ export default function IndexPage({
 									)
 								}}
 							</Listbox.Button>
-							<Listbox.Options className="absolute left-0 w-full p-3 z-10 rounded-md mt-1 bg-element shadow-md cursor-pointer">
+							<Listbox.Options className="absolute left-0 w-full py-3 z-10 rounded-md mt-1 bg-element shadow-md cursor-pointer">
 								{edges
 									.map(edge => edge.node)
 									.filter((node, i, array) => array.findIndex(o => node.region === o.region) === i)
 									.map(({ region }) => (
-										<Listbox.Option key={region} value={region}>
+										<Listbox.Option
+											className={`px-3 hover:bg-background ${
+												selectedRegion?.toLowerCase() === region.toLowerCase() ? 'bg-background' : ''
+											}`}
+											key={region}
+											value={region}>
 											{region}
 										</Listbox.Option>
 									))}
@@ -86,18 +95,9 @@ export default function IndexPage({
 					</div>
 				</div>
 			</section>
-			<section className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-20 justify-between">
-				{edges
-					.filter(
-						({ node }) =>
-							(selectedRegion ? node.region === selectedRegion : node) &&
-							(debouncedSearch.length === 0 ||
-								node.commonName.toLowerCase().includes(debouncedSearch.toLowerCase()))
-					)
-					.sort((a, b) =>
-						a.node.commonName < b.node.commonName ? -1 : a.node.commonName > b.node.commonName ? 1 : 0
-					)
-					.map(({ node }) => (
+			{resultEdges.length > 0 ? (
+				<section className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-20 justify-between">
+					{resultEdges.map(({ node }) => (
 						<CountrySummary
 							key={node.id}
 							id={node.id}
@@ -108,7 +108,12 @@ export default function IndexPage({
 							population={node.population}
 						/>
 					))}
-			</section>
+				</section>
+			) : (
+				<section>
+					<p className="italic">No results found...</p>
+				</section>
+			)}
 		</Layout>
 	)
 }

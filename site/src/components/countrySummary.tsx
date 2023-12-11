@@ -18,7 +18,7 @@ export default function CountrySummary({
 }): React.ReactElement {
 	return (
 		<Link
-			className="grid grid-rows-[1fr_auto] bg-element hover:scale-105 hover:outline outline-1 outline-text transition-transform rounded-lg overflow-hidden shadow-md"
+			className="grid grid-rows-[1fr_auto] bg-element hover:scale-105 hover:outline outline-1 outline-text transition-transform rounded-lg overflow-hidden shadow-md max-w-fit"
 			to={id}>
 			<img src={flag} />
 			<div className="m-4">
