@@ -3,6 +3,7 @@ import { HeadFC, PageProps, graphql } from 'gatsby'
 import { Listbox } from '@headlessui/react'
 import CountrySummary from '../components/countrySummary'
 import Layout from '../components/layout'
+import useDebounce from '../hooks/useDebounce'
 
 export default function IndexPage({
 	data: {
@@ -10,11 +11,17 @@ export default function IndexPage({
 	}
 }: PageProps<Queries.IndexPageQuery>): React.ReactElement {
 	const [selectedRegion, setSelectedRegion] = React.useState<string | null>(null)
+	const [debouncedSearch, setDebouncedSearch] = useDebounce('', 1000)
+	const inputRef = React.useRef<HTMLInputElement>(null)
 
 	React.useLayoutEffect(() => {
 		document.documentElement.className =
 			(typeof window !== 'undefined' && window.localStorage.getItem('theme')) ?? 'light'
 	}, [])
+
+	React.useEffect(() => {
+		console.log(debouncedSearch)
+	}, [debouncedSearch])
 
 	return (
 		<Layout>
@@ -29,7 +36,12 @@ export default function IndexPage({
 						fill="currentColor">
 						<path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
 					</svg>
-					<input className="w-full" placeholder="Search for a country..." />
+					<input
+						ref={inputRef}
+						onChange={e => setDebouncedSearch(e.target.value)}
+						className="w-full"
+						placeholder="Search for a country..."
+					/>
 				</div>
 				<div className="flex items-end basis-60 grow-[999]">
 					<div className="grow"></div>
@@ -76,7 +88,15 @@ export default function IndexPage({
 			</section>
 			<section className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-20 justify-between">
 				{edges
-					.filter(({ node }) => (selectedRegion ? node.region === selectedRegion : node))
+					.filter(
+						({ node }) =>
+							(selectedRegion ? node.region === selectedRegion : node) &&
+							(debouncedSearch.length === 0 ||
+								node.commonName.toLowerCase().includes(debouncedSearch.toLowerCase()))
+					)
+					.sort((a, b) =>
+						a.node.commonName < b.node.commonName ? -1 : a.node.commonName > b.node.commonName ? 1 : 0
+					)
 					.map(({ node }) => (
 						<CountrySummary
 							key={node.id}
