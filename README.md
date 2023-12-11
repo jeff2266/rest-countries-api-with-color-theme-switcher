@@ -1,53 +1,60 @@
-# your-source-plugin-name
+# Frontend Mentor - REST Countries API with color theme switcher solution
 
-## Description
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Include a summary of what this plugin accomplishes. Is there a demo site that shows how this plugin operates? If so, include a link to the deployed demo site and/or its source code here.
+## Table of contents
 
-Themes are considered plugins in the Gatsby ecosystem and should follow this README as well. Note that themes include multiple READMEs. One inside the theme directory with configuration instructions, one inside the example project directory, and one in the root of the repository which will follow this guide.
+- [Frontend Mentor - REST Countries API with color theme switcher solution](#frontend-mentor---rest-countries-api-with-color-theme-switcher-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
-### Dependencies (optional)
+## Overview
 
-Are there any plugins that must be installed in order to make this plugin work? If so, please include a list of those plugins and links to their pages here.
+### The challenge
 
-### Learning Resources (optional)
+Users should be able to:
 
-If there are other tutorials, docs, and learning resources that are necessary or helpful to someone using this plugin, please link to those here.
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode *(optional)*
 
-## How to install
+### Screenshot
 
-Please include installation instructions here.
+![](./screenshot.jpg)
 
-Gatsby documentation uses `npm` for installation. This is the recommended approach for plugins as well.
+### Links
 
-If the plugin is a theme that needs to use `yarn`, please point to [the documentation for switching package managers](/docs/reference/gatsby-cli/#how-to-change-your-default-package-manager-for-your-next-project) in addition to the `yarn`-based instructions.
+- Live Site URL: [https://dynamic-liger-46b72b.netlify.app/](https://dynamic-liger-46b72b.netlify.app/)
 
-## Available options (if any)
+## My process
 
-## When do I use this plugin?
+### Built with
 
-Include stories about when this plugin is helpful and/or necessary.
+- Tailwind
+- CSS Grid
+- [React](https://reactjs.org/) - JS library
+- [Gatsby](https://www.gatsbyjs.com/) - React framework
 
-## Examples of usage
+### What I learned
 
-This usually shows a code example showing how to include this plugin in a site's `config.js` file.
+Gatsby is a React-based tool that can be used to build static sites. Gatsby can generate a static site by reading data from an internal GraphQL database. There are several source plugins available that can populate data into Gatsby's GraphQL database. You may also write your own source plugin.
 
-    code example
+### Useful resources
 
-See this [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code) on how to format code examples.
+- [Gatsby Creating a Source Plugin](https://www.gatsbyjs.com/docs/tutorial/creating-a-source-plugin/) - This article helped me create a custom Gatsby Source Plugin to read from the REST coutries API
 
-This section could also include before-and-after examples of data when the plugin is enabled, if applicable.
+## Author
 
-## How to query for data (source plugins only)
-
-If this is a source plugin README, source plugins ought to allow people to query for data within their Gatsby site. Please include code examples to show how to query for data using your source plugin.
-
-If this is a theme that requires data in a specific format in order to match an existing query, include those examples here.
-
-## How to run tests
-
-## How to develop locally
-
-## How to contribute
-
-If you have unanswered questions, would like help with enhancing or debugging the plugin, it is nice to include instructions for people who want to contribute to your plugin.
+- Website - [Jeffrey Yan](https://precious-dasik-f097e8.netlify.app/)
+- Frontend Mentor - [@jeff2266](https://www.frontendmentor.io/profile/jeff2266)
